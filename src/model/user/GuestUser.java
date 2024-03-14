@@ -19,4 +19,6 @@ public class GuestUser {
 	public String toString() {
 		return "" + userID;
 	}
+	
+	//TODO: Create service for GuestUser.
 }
