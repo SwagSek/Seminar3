@@ -25,7 +25,7 @@ public class PrivateUser extends User{
 	
 	@Override
 	public void setNameSurname(String nameSurname) {
-		if (nameSurname != null && nameSurname.matches("[A-Z]{1}[a-z]{2, 20} [A-Z]{1}[a-z]{2, 20}"))
+		if (nameSurname != null && nameSurname.matches("[A-Z]{1}[a-z]{2,20} [A-Z]{1}[a-z]{2,20}"))
 			super.nameSurname = nameSurname;
 		else
 			super.nameSurname = "Undefined";
