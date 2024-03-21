@@ -1,5 +1,7 @@
 package model.user;
 
+import java.security.MessageDigest;
+
 import service.IPostService;
 
 public abstract class User extends GuestUser implements IPostService{
@@ -14,7 +16,6 @@ public abstract class User extends GuestUser implements IPostService{
 	public String getUsername() {
 		return username;
 	}
-	//TODO: Maybe change accessibility.
 	public String getPassword() {
 		return password;
 	}
@@ -26,12 +27,20 @@ public abstract class User extends GuestUser implements IPostService{
 		this.username = super.getUserID() + nameSurname.substring(0, 5).trim();
 	}
 	
-	//TODO:Check and set password.
-	public void setPassword(String password) {
-		if (password != null)
-			this.password = password;
-		else
-			this.password = "Undefined";
+	public void setPassword(String inputPassword) {
+		if (inputPassword != null && inputPassword.matches("[A-Za-z0-9!@#$%^&*]{4,20}")) {
+			try {
+				MessageDigest md = MessageDigest.getInstance("MD5");
+				md.update(inputPassword.getBytes());
+				this.password = new String(md.digest());
+			}
+			catch (Exception e) {
+			this.password = "undefined";
+			}
+		}
+		else {
+			this.password = "undefined";
+		}
 	}
 	
 	//Constructors
