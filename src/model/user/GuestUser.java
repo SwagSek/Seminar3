@@ -1,8 +1,11 @@
 package model.user;
 
+import service.impl.AllUserServiceImpl;
+
 public class GuestUser {
 	private long userID;
 	private static long counter = 0;
+	public AllUserServiceImpl service = new AllUserServiceImpl();
 
 	public long getUserID() {
 		return userID;

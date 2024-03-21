@@ -11,7 +11,7 @@ import model.user.PrivateUser;
 
 public class MainService {
 	
-	private static ArrayList<GuestUser> allUsers = new ArrayList<GuestUser>();
+	public static ArrayList<GuestUser> allUsers = new ArrayList<GuestUser>();
 
 	public static void main(String[] args) {
 		GuestUser gU1 = new GuestUser();
@@ -58,6 +58,10 @@ public class MainService {
 			System.out.println("Page: " + page);
 			System.out.println("Private Posts: " + page.getPrivatePosts());
 			System.out.println("Public Posts: " + page.getPublicPosts());
+			
+			System.out.println("--------------------------------------");
+			System.out.println("Search users:");
+			System.out.println(gU2.service.findUsers("elv"));
 		}
 	}
 
