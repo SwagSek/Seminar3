@@ -34,7 +34,7 @@ public class Page {
 	
 	//Setters
 	public void setTitle(String title) {
-		if (title != null && title.matches("[A-Za-z0-9 ]{5,20}"))
+		if (title != null && title.matches("[A-Za-z0-9 ]{5,40}"))
 			this.title = title;
 		else
 			this.title = "Undefined";

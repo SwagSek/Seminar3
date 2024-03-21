@@ -49,12 +49,14 @@ public class PrivateUser extends User{
 	}
 	
 	@Override
-	public void publishPost(String title, String msg, PostType type) throws Exception {
+	public Post publishPost(String title, String msg, PostType type) throws Exception {
 		if (title == null && msg == null && type == null) throw new Exception("Bad input values.");
 		Post newPost = new Post(title, msg);
 		if(type.equals(PostType.privatePost))
 			privatePosts.add(newPost);
 		else
 			publicPosts.add(newPost);
+		
+		return newPost;
 	}
 }
