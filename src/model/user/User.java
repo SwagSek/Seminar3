@@ -24,7 +24,7 @@ public abstract class User extends GuestUser implements IPostService{
 	public abstract void setNameSurname(String nameSurname);
 	
 	public void setUsername() {
-		this.username = super.getUserID() + nameSurname.substring(0, 5).trim();
+		this.username = super.getUserID() + nameSurname.substring(0, 8).toLowerCase().replace(" ", "");
 	}
 	
 	public void setPassword(String inputPassword) {
